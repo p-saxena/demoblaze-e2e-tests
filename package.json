@@ -1,0 +1,20 @@
+{
+  "name": "demoblaze-e2e",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix",
+    "test:chrome:headless": "cypress run --config-file cypress.config.js --browser chrome",
+    "test:chrome:ui": "cypress open --config-file cypress.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.35.0",
+    "cypress": "^15.1.0",
+    "eslint": "^9.35.0"
+  }
+}
