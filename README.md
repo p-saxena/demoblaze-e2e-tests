@@ -29,16 +29,17 @@ The tests verify critical user journeys of [Demoblaze](https://www.demoblaze.com
 
 
 ## How to run tests
-1. Open Cypress (interactive)
+You can use any one of the following methods to run the tests from project's root directory.
+1. Open Cypress UI (interactive)
    ```bash
-    npx cypress open
+    npm run test:chrome:ui
     # then click a spec (login or purchase-laptop)
 
-2. Headless run (Chrome)
+2. Headless execution in Chrome
    ```bash
     npm run test:chrome:headless
 
-3. Run a single spec
+3. Run a single spec. E.g.
    ```bash
     npx cypress run --spec "cypress/specs/login.spec.js" --browser chrome
 
