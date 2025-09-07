@@ -3,12 +3,7 @@ class LoginPage {
     loginModal: '#logInModal',
     usernameInput: '#loginusername',
     passwordInput: '#loginpassword',
-    loginButton: '#logInModal .modal-footer .btn-primary',
-    loginLink: '#login2',
-  }
-
-  open() {
-    return cy.get(this.selectors.loginLink).click()
+    loginButton: '.modal-footer .btn-primary',
   }
 
   getLoginModal() {
@@ -19,29 +14,28 @@ class LoginPage {
     this.getLoginModal().should('be.visible')
     cy.get(this.selectors.usernameInput).should('be.visible').and('not.be.disabled')
     cy.get(this.selectors.passwordInput).should('be.visible').and('not.be.disabled')
-    cy.get(this.selectors.loginButton).should('be.visible').and('not.be.disabled')
+    this.getLoginModal().find(this.selectors.loginButton).should('be.visible').and('not.be.disabled')
   }
 
   typeUsername(value) {
-    return cy.get(this.selectors.usernameInput).type(value)
+    cy.get(this.selectors.usernameInput).clear().type(value, { delay: 0 })
   }
 
   typePassword(value) {
-    return cy.get(this.selectors.passwordInput).type(value)
+    cy.get(this.selectors.passwordInput).clear().type(value)
   }
 
   clickLoginButton() {
-    return cy.get(this.selectors.loginButton).click()
+    cy.get(this.selectors.loginButton).click()
   }
   
   login(username, password) {
     this.waitForActionable()
     this.getLoginModal().within(() => {
-      cy.get(this.selectors.usernameInput).click()
       this.typeUsername(username)
       this.typePassword(password)
+      this.clickLoginButton()
     })
-    this.clickLoginButton()
   }
 }
 

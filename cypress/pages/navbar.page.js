@@ -1,17 +1,24 @@
 class Navbar {
   selectors = {
+    signUpLink: '#signin2',
     loginLink: '#login2',
     logoutLink: '#logout2',
     cartLink: '#cartur',
     welcomeUser: '#nameofuser',
   }
 
-  openLoginPage(){
-    cy.get(this.selectors.loginLink).click()
+  openSignUp() {
+    return cy.get(this.selectors.signUpLink).click()
   }
 
-  openCartPage() {
+  openLogin(){
+    return cy.get(this.selectors.loginLink).click()
+  }
+
+  openCart() {
+    cy.intercept('POST', '**/viewcart').as('viewCart')
     cy.get(this.selectors.cartLink).click()
+    return cy.wait('@viewCart').its('response.statusCode').should('eq', 200)
   }
 
   getWelcomeUser() {

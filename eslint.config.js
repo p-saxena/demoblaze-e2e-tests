@@ -15,6 +15,7 @@ module.exports = [
         driver: true,
         describe: true,
         it: true,
+        cy: true,
         before: true,
         after: true,
         beforeEach: true,
