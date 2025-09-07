@@ -26,7 +26,7 @@ class OrderModalPage {
 
   fillForm({ name, country, city, card, month, year }) {
     this.waitForActionable()
-    cy.get(this.selectors.name).clear().type(name)
+    cy.get(this.selectors.name).clear().type(name, { delay: 0 })
     cy.get(this.selectors.country).clear().type(country)
     cy.get(this.selectors.city).clear().type(city)
     cy.get(this.selectors.card).clear().type(card)

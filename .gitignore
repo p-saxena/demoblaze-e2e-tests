@@ -1,6 +1,7 @@
 node_modules
 cypress/videos
 cypress/screenshots
-cypress/results
 cypress/reports
+cypress/downloads
+cypress/results
 .DS_Store
